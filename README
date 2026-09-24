@@ -1,0 +1,56 @@
+# Sistema de Gestão de Brinquedos
+
+Sistema CRUD em PHP + MySQL para gerenciar os brinquedos de uma loja
+cadastrar, listar, editar e excluir, utilizando **Prepared Statements** 
+em todas as operações com o banco de dados.
+
+## Tecnologias utilizadas
+
+- PHP
+- MySQL
+- PDO (PHP Data Objects)
+- HTML
+
+## Estrutura do projeto
+
+
+infra/conexao.php -> conexão com o banco de dados 
+public/funcoes.php -> funções do CRUD listar, buscar, cadastrar, editar, excluir, validar
+index.php      -> lista os brinquedos cadastrados
+public/cadastrar.php -> formulário e lógica de cadastro (Create)
+public/editar.php -> formulário e lógica de edição (Update)
+public/excluir.php -> exclusão de um brinquedo (Delete)
+database/db.sql -> script de criação do banco e da tabela
+
+
+## Estrutura do banco de dados
+
+Tabela `brinquedos`:
+
+| Campo               | Tipo           |
+|---------------------|----------------|
+| id                  | INT (PK, auto) |
+| nome                | VARCHAR(100)   |
+| categoria           | VARCHAR(50)    |
+| faixa_etaria        | VARCHAR(30)    |
+| preco               | DECIMAL(10,2)  |
+| quantidade_estoque  | INT            |
+
+## Como executar
+
+1. Crie o banco de dados executando o arquivo `database/db.sql` no MySQL
+   (via phpMyAdmin, linha de comando ou outra ferramenta de sua preferência).
+2. Ajuste, se necessário, os dados de acesso em `infra/conexao.php` (host, usuário e senha).
+3. Coloque a pasta do projeto dentro do diretório do seu servidor local
+   (ex: `htdocs` no XAMPP).
+4. Acesse `index.php` pelo navegador, por exemplo:
+   `http://localhost/crud_gestao_brinquedos/index.php`
+
+## Funcionalidades
+
+- **Cadastrar** um novo brinquedo (nome, categoria, faixa etária, preço e estoque).
+- **Listar** todos os brinquedos cadastrados.
+- **Editar** os dados de um brinquedo existente.
+- **Excluir** um brinquedo.
+- Validação básica dos campos do formulário.
+- Todas as consultas ao banco usam Prepared Statements, evitando SQL Injection.
